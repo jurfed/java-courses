@@ -12,9 +12,39 @@ public static void main(String [] agrs){
 			String first = reader.next();
 			System.out.println("Enter second arg");
 			String second = reader.next();
-			calc.add(Integer.valueOf(first), Integer.valueOf(second));
+			System.out.println("enter operation: 1 - add, 2 - minus, 3 - multiply, 4 - divide, 5 - pow");
+			
+			String comand = reader.next();
+			switch(comand){
+				case "1":
+				calc.add(Integer.valueOf(first), Integer.valueOf(second));
+				break;
+				
+				case "2":
+				calc.minus(Integer.valueOf(first), Integer.valueOf(second));
+				break;
+				
+				case "3":
+				calc.multiply(Integer.valueOf(first), Integer.valueOf(second));
+				break;
+				
+				case "4":
+				calc.divide(Integer.valueOf(first), Integer.valueOf(second));
+				break;	
+
+				case "5":
+				calc.stepen(Integer.valueOf(first), Integer.valueOf(second));
+				break;					
+			}
+			
 			System.out.println("result = "+calc.getResult());
-			calc.cleanResult();
+			System.out.println("clear result? yes/no");
+			String clear = reader.next();
+			if(clear.equals("yes")){
+				calc.cleanResult();
+			}
+			
+			
 			System.out.println("Exit? yes/no");
 			exit = reader.next();
 		}
